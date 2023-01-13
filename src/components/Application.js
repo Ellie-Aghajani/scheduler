@@ -1,6 +1,12 @@
 import React from "react";
-
 import "components/Application.scss";
+import DayList from "./DayList";
+
+<DayList
+  days={days}
+  day={"Monday"}
+  setDay={day => console.log(day)}
+/>
 
 export default function Application(props) {
   return (
