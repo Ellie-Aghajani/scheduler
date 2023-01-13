@@ -4,11 +4,7 @@ import React, { useState } from "react";
 import "components/Application.scss";
 import DayList from "./DayList";
 
-<DayList
-  days={days}
-  day={"Monday"}
-  setDay={day => console.log(day)}
-/>
+ <DayList days={days} day={day} setDay={setDay} />
 const [day, setDay] = useState("Monday");
 
 export default function Application(props) {
