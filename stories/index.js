@@ -22,3 +22,24 @@ storiesOf("Button", module)
       Disabled
     </Button>
   ));
+  storiesOf("InterviewerList", module)
+  .addParameters({
+    backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
+  })
+  .add("Initial", () => (
+    <InterviewerList
+      interviewers={interviewers}
+    />
+  ))
+  .add("Selected", () => (
+    <InterviewerList
+      interviewers={interviewers}
+      value={3}
+    />
+  ))
+  .add("Clickable", () => (
+    <InterviewerList
+      interviewers={interviewers}
+      onChange={action("setInterviewer")}
+    />
+  ));
