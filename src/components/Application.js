@@ -1,4 +1,6 @@
 import React from "react";
+import React, { useState } from "react";
+
 import "components/Application.scss";
 import DayList from "./DayList";
 
@@ -7,6 +9,7 @@ import DayList from "./DayList";
   day={"Monday"}
   setDay={day => console.log(day)}
 />
+const [day, setDay] = useState("Monday");
 
 export default function Application(props) {
   return (
