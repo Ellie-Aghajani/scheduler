@@ -1,42 +1,41 @@
 export function getAppointmentsForDay(state, day) {
-    // find the day
-    const foundDay = state.days.find((item) => item.name === day);
-    if (!foundDay) {
-      return [];
-    }
-  
-    //find appointment for the given day
-    const arr = foundDay.appointments;
-    const mappedArr = arr.map((id) => {
-      return state.appointments[id];
-    });
-  
-    return mappedArr;
+  //... returns an array of appointments for that day
+let appointmentIdArray = [];
+let appointmentArray = [];
+for (const eachDay of state.days) {
+  if (eachDay.name === day) {appointmentIdArray = eachDay.appointments;}
+}
+
+if (appointmentIdArray.length === 0) { return [];}
+
+for (const appointment of appointmentIdArray) {
+  appointmentArray.push(state.appointments[appointment]);
+}
+return appointmentArray;
+}
+
+export function getInterview(state, interview) {
+  if (interview === null) {return null;}
+  // get the id of the interviewer from the interview
+  let interviewerID = interview.interviewer;
+  // get the interviewer info as we now have their id
+  const interviewerInfo = state.interviewers[interviewerID];
+  // copy all the info and update just the interviewer property
+  return {...interview, interviewer: interviewerInfo}
+}
+
+export function getInterviewersForDay(state, day) {
+  //... returns an array of interviewers for that day
+  let interviewerIdArray = [];
+  let interviewerArray = [];
+  for (const eachDay of state.days) {
+    if (eachDay.name === day) {interviewerIdArray = eachDay.interviewers;}
   }
-  export function getInterview(state, interview) {
-    if (!interview) {
-      return null;
-    }
-    const id = interview.interviewer;
-    const updatedInterview = {
-      ...interview,
-      interviewer: state.interviewers[id],
-    };
-    return updatedInterview;
+
+  if (interviewerIdArray.length === 0) {return [];}
+
+  for (const interviewer of interviewerIdArray) {
+    interviewerArray.push(state.interviewers[interviewer]);
   }
-  
-  export function getInterviewersForDay(state, day) {
-    // find the interviewer
-    const foundDay = state.days.find((item) => item.name === day);
-    if (!foundDay) {
-      return [];
-    }
-  
-    //find appointment for the given day
-    const arr = foundDay.interviewers;
-    const mappedArr = arr.map((id) => {
-      return state.interviewers[id];
-    });
-  
-    return mappedArr;
-  }
+  return interviewerArray;
+}
