@@ -174,7 +174,7 @@ storiesOf("Appointment", module)
     onClose={action("onClose")}
   />)
   .add("Edit Form", () => <Form
-    student="Rouzbeh Berenji"
+    student="Zeynab Aghajani"
     onChange={action("setInterviewer")}
     interviewers={interviewers}
     interviewer={3}
@@ -197,7 +197,7 @@ storiesOf("Appointment", module)
       <Appointment
         id={1}
         time="4pm"
-        interview={{ student: "Lydia Miller-Jones", interviewer }}
+        interview={{ student: "Jack Jones", interviewer }}
       />
       <Appointment time="5pm" />
     </Fragment>
