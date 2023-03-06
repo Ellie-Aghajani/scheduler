@@ -27,11 +27,6 @@ npm start
 npm test
 ```
 
-## Running Storybook Visual Testbed
-
-```sh
-npm run storybook
-```
 
 ## Dependencies
     "@testing-library/react-hooks": "^8.0.1",
